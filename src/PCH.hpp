@@ -104,6 +104,22 @@
 #include <Windows.h>
 #include <Psapi.h>
 
+namespace stl {
+	using namespace SKSE::stl;
+
+	template <class T, std::size_t Size = 5>
+	void write_thunk_call(std::uintptr_t a_src) {
+		SKSE::AllocTrampoline(14);
+		auto& trampoline = SKSE::GetTrampoline();
+		if (Size == 6) {
+			T::func = *(uintptr_t*)trampoline.write_call<6>(a_src, T::thunk);
+		}
+		else {
+			T::func = trampoline.write_call<Size>(a_src, T::thunk);
+		}
+	}
+}
+
 // Compatible declarations with other sample projects.
 #define DLLEXPORT __declspec(dllexport)
 
@@ -111,9 +127,8 @@ using namespace std::literals;
 using namespace REL::literals;
 
 namespace logger = SKSE::log;
-
-namespace util {
-	using SKSE::stl::report_and_fail;
-}
+using namespace SKSE;
+using namespace RE;
+using namespace REL;
 
 

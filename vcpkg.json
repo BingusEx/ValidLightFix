@@ -1,5 +1,5 @@
 {
-  "name": "ValidLightFix",
+  "name": "validlightfix",
   "version-string": "1.0.0",
   "description": "Experiment",
   "features": {
@@ -20,5 +20,5 @@
       ]
     }
   },
-  "default-features": ["plugin"],
+  "default-features": ["plugin"]
 }

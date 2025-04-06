@@ -6,7 +6,7 @@ set (CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE
 project(
 	ValidLightFix
 	VERSION 1.0.0
-	DESCRIPTION "ValidLightFix"
+	DESCRIPTION "validlightfix"
 	LANGUAGES CXX
 )
 
